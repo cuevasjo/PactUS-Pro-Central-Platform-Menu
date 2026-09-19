@@ -3,12 +3,9 @@
 ## Certified parent
 CP-8/CP-9/CP-10 certified head: `c9457e8f2641999ac60f706204f5e592c5d1b450`
 
-## Implemented
+## Validated implementation
 - global timer context;
-- timer start;
-- pause;
-- resume;
-- stop;
+- start, pause, resume and stop behavior;
 - elapsed-time calculation;
 - organization/user context;
 - client/matter context;
@@ -17,23 +14,27 @@ CP-8/CP-9/CP-10 certified head: `c9457e8f2641999ac60f706204f5e592c5d1b450`
 - billing code/rate/currency placeholders;
 - canonical time-entry output.
 
-## Architectural rule
-Time & Billing is a global platform capability.
+## Validation evidence
+The combined CP-11/CP-12 certification gate passed at:
+`6f54d6af12a371e02a2aab1ecf89588779adbb48`
 
-LRO, PFIE, Scout, and future modules may provide contextual shortcuts, but they must resolve to the same central Time & Billing service rather than creating separate billing timers.
-
-## Production boundaries
-Persistence, approval workflow, governed rates, invoice generation, rounding rules, accounting integrations, reporting, and export remain later integration/certification work.
-
-## Certification gate
-CP-11 is certified when the controlled branch passes:
+Passing checks:
 - TypeScript typecheck;
-- Time/Admin tests;
-- complete regression test suite;
+- CP-11/CP-12 tests;
+- IAM/access regression;
+- shell/navigation regression;
+- localization regression;
+- Experience/Support regression;
+- Customer Experience regression;
+- complete test suite;
 - complete CI;
 - `git diff --check`.
 
-## Status
-CP-11 implementation: COMPLETE
+## Architectural rule
+Time & Billing is a global platform capability. Module shortcuts resolve to the same central service.
 
-CP-11 certification: PENDING FINAL PASS
+## Production boundary
+Persistence, approval workflow, governed rates, invoice generation, accounting integrations, exports and final production validation continue through CP-13/CP-14/CP-15.
+
+## Certification status
+CP-11: CERTIFIED COMPLETE
