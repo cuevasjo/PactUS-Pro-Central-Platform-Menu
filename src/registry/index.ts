@@ -4,6 +4,7 @@ export * from "./permissions";
 export * from "./products";
 export * from "./navigation";
 export * from "./lifecycle";
+export * from "./product-functions";
 
 export { LRO_MODULES } from "./modules/lro";
 export { PFIE_MODULES } from "./modules/pfie";
