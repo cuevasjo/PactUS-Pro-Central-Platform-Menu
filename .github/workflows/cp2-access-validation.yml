@@ -1,0 +1,37 @@
+name: CP-2 Effective Access Validation
+
+on:
+  push:
+    branches:
+      - phase-cp2-iam-effective-access
+  pull_request:
+    paths:
+      - "src/access/**"
+      - "src/registry/**"
+      - "scripts/**"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+      - ".github/workflows/cp2-access-validation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Typecheck, registry validation, and access tests
+        run: npm run ci
