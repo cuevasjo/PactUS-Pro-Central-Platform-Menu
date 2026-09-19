@@ -36,13 +36,17 @@ If the source is `legacy_transition`, centralized protected access is denied unl
 
 A missing required product entitlement is denied.
 
-A suspended/inactive product is denied.
+A suspended, expired, or cancelled product is denied.
+
+A trial product is treated as usable when Phase 27 reports it as subscribed.
 
 A missing feature/sub-module entitlement is denied.
 
 A missing permission is denied.
 
 A disabled lifecycle state is denied.
+
+An unregistered route is denied by the route authorization helper.
 
 ## Sub-module entitlement boundary
 The current Phase 27 `/api/auth/me/modules` runtime response provides product-level module access and permissions.
@@ -71,5 +75,36 @@ Access decisions can produce structured audit metadata containing:
 - missing entitlement(s);
 - missing permission(s).
 
+## Automated coverage
+CP-2 automated tests cover:
+- trusted IAM allow path;
+- missing feature entitlement;
+- missing enterprise permission;
+- non-entitled product;
+- suspended product;
+- expired product;
+- cancelled product;
+- trial product;
+- disabled lifecycle state;
+- unregistered route;
+- legacy-transition fail-closed behavior;
+- explicitly governed compatibility mode;
+- global navigation filtering;
+- product-function visibility;
+- access audit metadata.
+
+## Certification criteria
+CP-2 is certified only when all of the following pass on the controlled CP-2 head:
+1. TypeScript typecheck;
+2. CP-1 registry validation;
+3. CP-1 registry tests;
+4. CP-2 access tests;
+5. combined `npm run ci`;
+6. `git diff --check`;
+7. clean tracked working tree;
+8. CP-1 certified commit remains an ancestor.
+
 ## Production note
 CP-2 is an integration foundation. It does not modify the Phase 27 repository or claim that sub-module entitlement APIs are already available there.
+
+Production readiness of the entire Central Platform is not claimed by CP-2 alone.
