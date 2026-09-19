@@ -3,29 +3,34 @@
 ## Certified parent
 CP-8/CP-9/CP-10 certified head: `c9457e8f2641999ac60f706204f5e592c5d1b450`
 
-## Implemented
+## Validated implementation
 - organization administration contract;
-- user access-row contract;
-- access-matrix builder;
-- product/feature/permission visibility;
+- user-access row contract;
+- centralized access matrix;
+- product entitlement visibility;
+- feature entitlement visibility;
+- permission visibility;
 - support-plan visibility;
 - permission-aware Admin Center navigation.
 
-## Governance
-The Admin Center is the canonical management experience but does not replace authoritative IAM, entitlement, billing, support, training, or audit services.
+## Validation evidence
+The combined CP-11/CP-12 certification gate passed at:
+`6f54d6af12a371e02a2aab1ecf89588779adbb48`
 
-## Security
-Admin navigation is filtered by enterprise permission. Backend authorization remains mandatory for every administrative action.
-
-## Certification gate
-CP-12 is certified when the controlled branch passes:
+Passing checks:
 - TypeScript typecheck;
-- Time/Admin tests;
-- complete regression test suite;
+- CP-11/CP-12 tests;
+- IAM/access regression;
+- shell/navigation regression;
+- localization regression;
+- Experience/Support regression;
+- Customer Experience regression;
+- complete test suite;
 - complete CI;
 - `git diff --check`.
 
-## Status
-CP-12 implementation: COMPLETE
+## Governance
+The Admin Center remains the canonical management surface over authoritative IAM, entitlement, billing, support, training and audit services.
 
-CP-12 certification: PENDING FINAL PASS
+## Certification status
+CP-12: CERTIFIED COMPLETE
