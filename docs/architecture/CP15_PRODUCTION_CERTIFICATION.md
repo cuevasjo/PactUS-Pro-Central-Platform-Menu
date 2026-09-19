@@ -7,54 +7,43 @@ CP-15 establishes the final controlled certification record for the PactUS Pro C
 CP-14 certified head:
 `4d933ea5bc06c817c101a897b4a3ac04d70b46cf`
 
-## Certification scope
-CP-15 validates that the complete Central Platform lineage remains intact from CP-0 through CP-14 and that the final controlled branch passes the complete regression and governance gates.
+## Final validation evidence
+The CP-15 production certification gate passed at:
+`dbd31699021ff417195777bdb8f8d4a379c0a5c4`
 
-## Required evidence
-- controlled branch and expected HEAD;
-- certified CP-14 ancestry;
-- full TypeScript typecheck;
-- registry validation;
-- all regression suites;
-- complete CI;
-- `git diff --check`;
-- architecture/certification artifact presence;
-- external repository contracts remain read-only;
-- no protected-branch merge performed during certification;
-- working tree contains no tracked modifications.
+Passing checks:
+- certified CP-14 ancestry verified;
+- TypeScript typecheck passed;
+- registry validation passed;
+- CP-15 production-certification tests passed;
+- CP-14 security/integration regression passed;
+- complete regression suite passed;
+- complete CI passed;
+- `git diff --check` passed;
+- all four external adapter relationships verified as `read_only_contract`;
+- certification artifacts verified present;
+- complete CP architecture documentation inventory verified;
+- no tracked working-tree modifications detected.
+
+Registry baseline:
+- 3 products;
+- 25 modules;
+- 8 global navigation items;
+- 37 entitlement codes;
+- 23 LRO functions;
+- 22 PFIE functions.
 
 ## Production-readiness boundary
-CP-15 certifies the Central Platform codebase and integration contracts represented in this repository.
+This certification covers the Central Platform codebase and governed integration contracts represented in this repository.
 
-It does not by itself certify:
-- AWS infrastructure deployment;
-- production DNS;
-- production secrets;
-- external IdP tenant configuration;
-- external billing providers;
-- production databases;
-- external phase repository runtime deployments;
-- contractual SLA language;
-- customer-specific subscription data.
+It does not by itself certify AWS infrastructure deployment, production DNS, secrets, external IdP tenant configuration, billing providers, production databases, external phase-repository deployments, contractual SLA language, or customer-specific subscription data.
 
-Those remain environment/deployment responsibilities.
+## Release control
+Certification does not automatically merge to `main` or create a production tag.
 
-## Final modules covered
-- central registry;
-- IAM/effective access integration;
-- central shell/navigation;
-- localization;
-- Experience Center foundation;
-- Help Desk / Support / SLA foundation;
-- credits/remedies foundation;
-- improvements/feature requests;
-- customer surveys;
-- global Time & Billing foundation;
-- Admin Center foundation;
-- product/phase adapters;
-- security/integration controls.
+Merge, tag, and release actions require explicit product-owner authorization.
 
 ## Certification status
-CP-15 implementation: COMPLETE
+CP-15: CERTIFIED COMPLETE
 
-CP-15 final certification: PENDING FINAL PASS
+Overall Central Platform: 100% COMPLETE / 0% PENDING
