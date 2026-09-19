@@ -6,7 +6,9 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "validate:registry": "tsx scripts/validate-registry.ts",
-    "test": "tsx scripts/test-registry.ts",
+    "test:registry": "tsx scripts/test-registry.ts",
+    "test:access": "tsx scripts/test-access.ts",
+    "test": "npm run test:registry && npm run test:access",
     "ci": "npm run typecheck && npm run validate:registry && npm test"
   },
   "devDependencies": {
