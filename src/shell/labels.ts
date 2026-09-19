@@ -7,7 +7,26 @@ const EN: Record<string, string> = {
   "navigation.experienceCenter": "Experience Center",
   "navigation.reportsAnalytics": "Reports & Analytics",
   "navigation.administration": "Administration",
-
+  "navigation.group.general": "General",
+  "navigation.group.workspace": "Workspace",
+  "navigation.group.agreements": "Agreements & Documents",
+  "navigation.group.workforce": "Workforce Governance",
+  "navigation.group.cases": "Cases & Grievances",
+  "navigation.group.governance": "Governance",
+  "navigation.group.integrations": "Integrations",
+  "navigation.group.analytics": "Analytics",
+  "navigation.group.bargaining": "Bargaining & Negotiation",
+  "navigation.group.operations": "Operations",
+  "navigation.group.tiptap": "Collaborative Editor",
+  "navigation.group.core": "Core",
+  "navigation.group.workflow": "Workflow",
+  "navigation.group.analysis": "Analysis",
+  "navigation.group.executive": "Executive Intelligence",
+  "navigation.group.training": "Training",
+  "navigation.group.advanced": "Advanced Tools",
+  "navigation.group.portfolio": "Portfolio Strategy",
+  "navigation.group.administration": "Administration",
+  "navigation.group.help": "Help",
   "lro.navigation.home": "Home",
   "lro.navigation.laborDocuments": "Labor Documents",
   "lro.navigation.bargainingUnits": "Bargaining Units",
@@ -30,7 +49,6 @@ const EN: Record<string, string> = {
   "navigation.inbox": "Inbox",
   "navigation.analytics": "Analytics",
   "navigation.admin": "Administration",
-
   "pfie.navigation.home": "PFIE",
   "pfie.navigation.workspaces": "Workspaces",
   "pfie.navigation.uploadData": "Upload Data",
@@ -54,7 +72,6 @@ const EN: Record<string, string> = {
   "pfie.navigation.reportCenter": "Report Center",
   "pfie.navigation.userGuide": "User Guide",
 };
-
 const ES: Record<string, string> = {
   "navigation.home": "Inicio",
   "navigation.lro": "LRO",
@@ -64,12 +81,28 @@ const ES: Record<string, string> = {
   "navigation.experienceCenter": "Centro de Experiencia",
   "navigation.reportsAnalytics": "Reportes y Análisis",
   "navigation.administration": "Administración",
+  "navigation.group.general": "General",
+  "navigation.group.workspace": "Espacio de Trabajo",
+  "navigation.group.agreements": "Convenios y Documentos",
+  "navigation.group.workforce": "Gobernanza de la Fuerza Laboral",
+  "navigation.group.cases": "Casos y Quejas",
+  "navigation.group.governance": "Gobernanza",
+  "navigation.group.integrations": "Integraciones",
+  "navigation.group.analytics": "Análisis",
+  "navigation.group.bargaining": "Negociación Colectiva",
+  "navigation.group.operations": "Operaciones",
+  "navigation.group.tiptap": "Editor Colaborativo",
+  "navigation.group.core": "Principal",
+  "navigation.group.workflow": "Flujo de Trabajo",
+  "navigation.group.analysis": "Análisis",
+  "navigation.group.executive": "Inteligencia Ejecutiva",
+  "navigation.group.training": "Capacitación",
+  "navigation.group.advanced": "Herramientas Avanzadas",
+  "navigation.group.portfolio": "Estrategia de Portafolio",
+  "navigation.group.administration": "Administración",
+  "navigation.group.help": "Ayuda",
 };
-
-export function labelFor(
-  key: string,
-  language: "en" | "es",
-): string {
+export function labelFor(key: string, language: "en" | "es"): string {
   if (language === "es") return ES[key] ?? EN[key] ?? key;
   return EN[key] ?? key;
 }
