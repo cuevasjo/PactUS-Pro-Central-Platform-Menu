@@ -8,6 +8,35 @@ import type {
   ShellNavigationEntry,
 } from "./types";
 
+export interface ProductNavigationGroup {
+  id: string;
+  labelKey: string;
+  items: ShellNavigationEntry[];
+}
+
+const GROUP_LABEL_KEYS: Record<string, string> = {
+  general: "navigation.group.general",
+  workspace: "navigation.group.workspace",
+  agreements: "navigation.group.agreements",
+  workforce: "navigation.group.workforce",
+  cases: "navigation.group.cases",
+  governance: "navigation.group.governance",
+  integrations: "navigation.group.integrations",
+  analytics: "navigation.group.analytics",
+  bargaining: "navigation.group.bargaining",
+  operations: "navigation.group.operations",
+  tiptap: "navigation.group.tiptap",
+  core: "navigation.group.core",
+  workflow: "navigation.group.workflow",
+  analysis: "navigation.group.analysis",
+  executive: "navigation.group.executive",
+  training: "navigation.group.training",
+  advanced: "navigation.group.advanced",
+  portfolio: "navigation.group.portfolio",
+  administration: "navigation.group.administration",
+  help: "navigation.group.help",
+};
+
 export function buildGlobalShellNavigation(
   snapshot: CentralAuthorizationSnapshot,
   activeRoute: string,
@@ -45,7 +74,9 @@ export function buildProductShellNavigation(
     }));
 }
 
-export function groupProductNavigation(entries: ShellNavigationEntry[]) {
+export function groupProductNavigation(
+  entries: ShellNavigationEntry[],
+): Map<string, ShellNavigationEntry[]> {
   const groups = new Map<string, ShellNavigationEntry[]>();
 
   for (const entry of entries) {
@@ -56,4 +87,16 @@ export function groupProductNavigation(entries: ShellNavigationEntry[]) {
   }
 
   return groups;
+}
+
+export function buildGroupedProductNavigation(
+  entries: ShellNavigationEntry[],
+): ProductNavigationGroup[] {
+  return Array.from(groupProductNavigation(entries).entries()).map(
+    ([id, items]) => ({
+      id,
+      labelKey: GROUP_LABEL_KEYS[id] ?? GROUP_LABEL_KEYS.general,
+      items,
+    }),
+  );
 }
