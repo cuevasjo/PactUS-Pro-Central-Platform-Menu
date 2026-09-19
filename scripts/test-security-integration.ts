@@ -49,16 +49,25 @@ for(const adapter of PRODUCT_ADAPTERS){
   assert.equal(adapterBoundaryIsSafe(adapter),true,adapter.id);
 }
 
-assert.throws(() => adaptPhase27ModulesResponse({
+const legacySnapshot = adaptPhase27ModulesResponse({
   organizationId:"org-a",
   userId:"user-a",
   role:"user",
-  authorizationSource:"legacy",
+  authorizationSource:"legacy_transition",
   modules:[
     {module:"contracts",subscribed:true,status:"active",permissions:["lro.view"]},
     {module:"pfie",subscribed:false,status:"not_entitled",permissions:[]},
     {module:"scout",subscribed:false,status:"not_entitled",permissions:[]},
   ],
-}));
+});
+
+assert.equal(legacySnapshot.authorizationSource,"legacy_transition");
+assert.equal(legacySnapshot.entitlements.size,0);
+assert.equal(legacySnapshot.permissions.size,0);
+assert.equal(legacySnapshot.productStates.size,0);
+assert.equal(authorizeDirectRoute(legacySnapshot,{
+  requiredEntitlements:[ENTITLEMENTS.lro.contracts],
+  requiredPermissions:["lro.view"],
+}),false);
 
 console.log("CP-14 security and integration tests passed.");
