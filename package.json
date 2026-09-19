@@ -9,9 +9,10 @@
     "test:registry": "tsx scripts/test-registry.ts",
     "test:access": "tsx scripts/test-access.ts",
     "test:shell": "tsx scripts/test-shell-navigation.ts",
-    "test": "npm run test:registry && npm run test:access && npm run test:shell && npm run test:localization",
+    "test": "npm run test:registry && npm run test:access && npm run test:shell && npm run test:localization && npm run test:experience-support",
     "ci": "npm run typecheck && npm run validate:registry && npm test",
-    "test:localization": "tsx scripts/test-localization.ts"
+    "test:localization": "tsx scripts/test-localization.ts",
+    "test:experience-support": "tsx scripts/test-experience-support.ts"
   },
   "dependencies": {
     "react": "^19.1.1",
