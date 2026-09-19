@@ -3,7 +3,7 @@
 ## Certified parent
 CP-11/CP-12 certified head: `74bbd486d7589729d32e4245567ace2bc46d5d44`
 
-## Implemented
+## Validated implementation
 - Phase 28 adapter contract to LRO;
 - Phase 29 UCSII adapter contract to PFIE;
 - Phase 30 Benefits adapter contract to PFIE;
@@ -17,22 +17,28 @@ CP-11/CP-12 certified head: `74bbd486d7589729d32e4245567ace2bc46d5d44`
 - adapter maturity status;
 - adapter regression tests.
 
-## Safety
-External repositories remain independent.
+## Validation evidence
+The CP-13 certification gate passed at:
+`c0569779038ded01eb0356144f85469b58d990dc`
 
-CP-13 does not import business logic directly, modify external repositories, or create cross-repository build dependencies.
-
-## Certification gate
-CP-13 is certified only after the controlled branch passes:
+Passing checks:
 - TypeScript typecheck;
-- adapter tests;
-- registry/access/shell/localization/experience/customer-experience/time-admin regressions;
-- full test suite;
+- CP-13 adapter tests;
+- registry regression;
+- IAM/access regression;
+- shell/navigation regression;
+- localization regression;
+- Experience/Support regression;
+- Customer Experience regression;
+- Time/Admin regression;
+- complete test suite;
 - complete CI;
 - `git diff --check`;
-- certified CP-12 ancestry check.
+- certified CP-12 ancestry check;
+- read-only external-repository contract verification.
 
-## Status
-CP-13 implementation: COMPLETE
+## Safety
+External PactUS repositories remained independent and were not modified.
 
-CP-13 certification: PENDING FINAL PASS
+## Certification status
+CP-13: CERTIFIED COMPLETE
