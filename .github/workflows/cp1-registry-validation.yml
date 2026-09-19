@@ -1,0 +1,36 @@
+name: CP-1 Registry Validation
+
+on:
+  push:
+    branches:
+      - phase-cp1-module-entitlement-registry
+  pull_request:
+    paths:
+      - "src/registry/**"
+      - "scripts/**"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+      - ".github/workflows/cp1-registry-validation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Typecheck and validate registry
+        run: npm run ci

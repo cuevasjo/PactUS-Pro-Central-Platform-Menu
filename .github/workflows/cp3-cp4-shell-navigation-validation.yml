@@ -1,0 +1,38 @@
+name: CP-3 CP-4 Shell Navigation Validation
+
+on:
+  push:
+    branches:
+      - phase-cp3-cp4-central-shell-navigation
+  pull_request:
+    paths:
+      - "src/shell/**"
+      - "src/access/**"
+      - "src/registry/**"
+      - "scripts/**"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+      - ".github/workflows/cp3-cp4-shell-navigation-validation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Typecheck, registry validation, and shell tests
+        run: npm run ci
