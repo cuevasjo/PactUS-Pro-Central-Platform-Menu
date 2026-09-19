@@ -82,4 +82,13 @@ export const ES_US: TranslationCatalog = {
   "pfie.navigation.audit": "Auditoría",
   "pfie.navigation.reportCenter": "Centro de Reportes",
   "pfie.navigation.userGuide": "Guía del Usuario",
+  "experience.navigation.help": "Ayuda y Base de Conocimiento",
+  "experience.navigation.training": "Capacitación",
+  "experience.navigation.support": "Soporte Técnico",
+  "experience.navigation.improvements": "Mejoras y Comentarios",
+  "experience.navigation.surveys": "Encuestas",
+  "experience.navigation.whatsNew": "Novedades",
+  "support.plan.essential": "Esencial",
+  "support.plan.priority": "Prioridad",
+  "support.plan.premier": "Premier",
 };
