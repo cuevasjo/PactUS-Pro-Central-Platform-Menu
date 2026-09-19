@@ -3,7 +3,9 @@ import {
   ALL_MODULES,
   ENTITLEMENTS,
   GLOBAL_NAVIGATION,
+  LRO_FUNCTIONS,
   LRO_MODULES,
+  PFIE_FUNCTIONS,
   PFIE_MODULES,
   PRODUCTS,
   SCOUT_MODULES,
@@ -25,12 +27,10 @@ assert.ok(
   LRO_MODULES.find((m) => m.id === "lro.job_descriptions")
     ?.requiredEntitlements.includes(ENTITLEMENTS.lro.jobDescriptions),
 );
-
 assert.ok(
   LRO_MODULES.find((m) => m.id === "lro.grievances")
     ?.requiredEntitlements.includes(ENTITLEMENTS.lro.grievances),
 );
-
 assert.ok(
   PFIE_MODULES.find((m) => m.id === "pfie.benefits")
     ?.requiredEntitlements.includes(ENTITLEMENTS.pfie.benefits),
@@ -50,5 +50,27 @@ for (const module of ALL_MODULES) {
   assert.equal(module.helpContext, module.trainingContext);
   assert.equal(module.helpContext, module.supportContext);
 }
+
+const lroIds = new Set(LRO_FUNCTIONS.map((f) => f.id));
+assert.ok(lroIds.has("lro.job_descriptions"));
+assert.ok(lroIds.has("lro.grievances"));
+assert.ok(lroIds.has("lro.negotiation"));
+assert.ok(lroIds.has("lro.document_workspace"));
+assert.ok(lroIds.has("lro.tiptap.new_contract"));
+assert.ok(lroIds.has("lro.tiptap.e_learning"));
+
+const pfieIds = new Set(PFIE_FUNCTIONS.map((f) => f.id));
+assert.ok(pfieIds.has("pfie.workspaces"));
+assert.ok(pfieIds.has("pfie.scenario"));
+assert.ok(pfieIds.has("pfie.saved_scenarios"));
+assert.ok(pfieIds.has("pfie.impact_analysis"));
+assert.ok(pfieIds.has("pfie.employee_audit"));
+assert.ok(pfieIds.has("pfie.executive_intelligence"));
+assert.ok(pfieIds.has("pfie.command_center"));
+assert.ok(pfieIds.has("pfie.portfolio_command_center"));
+assert.ok(pfieIds.has("pfie.cross_union_simulation"));
+assert.ok(pfieIds.has("pfie.knowledge_graph"));
+assert.ok(pfieIds.has("pfie.billable_time"));
+assert.ok(pfieIds.has("pfie.user_guide"));
 
 console.log("Registry tests passed.");
