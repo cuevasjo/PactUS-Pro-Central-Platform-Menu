@@ -9,14 +9,15 @@
     "test:registry": "tsx scripts/test-registry.ts",
     "test:access": "tsx scripts/test-access.ts",
     "test:shell": "tsx scripts/test-shell-navigation.ts",
-    "test": "npm run test:registry && npm run test:access && npm run test:shell && npm run test:localization && npm run test:experience-support && npm run test:customer-experience && npm run test:time-admin && npm run test:adapters && npm run test:security-integration",
+    "test": "npm run test:registry && npm run test:access && npm run test:shell && npm run test:localization && npm run test:experience-support && npm run test:customer-experience && npm run test:time-admin && npm run test:adapters && npm run test:security-integration && npm run test:production-certification",
     "ci": "npm run typecheck && npm run validate:registry && npm test",
     "test:localization": "tsx scripts/test-localization.ts",
     "test:experience-support": "tsx scripts/test-experience-support.ts",
     "test:customer-experience": "tsx scripts/test-customer-experience.ts",
     "test:time-admin": "tsx scripts/test-time-admin.ts",
     "test:adapters": "tsx scripts/test-adapters.ts",
-    "test:security-integration": "tsx scripts/test-security-integration.ts"
+    "test:security-integration": "tsx scripts/test-security-integration.ts",
+    "test:production-certification": "tsx scripts/test-production-certification.ts"
   },
   "dependencies": {
     "react": "^19.1.1",
